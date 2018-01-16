@@ -6,7 +6,9 @@
                     <li>
                         <router-link :to="{ name: 'example' }">Example</router-link>
                     </li>
-                    
+                    <li>
+                        <router-link :to="{ name: 'Register' }">Register</router-link>
+                    </li>
                 </ul>
             </nav>
         </div>

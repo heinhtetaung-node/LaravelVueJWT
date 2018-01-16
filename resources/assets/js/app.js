@@ -7,12 +7,19 @@ import axios from 'axios';
 Vue.use(VueAxios, axios);
 import App from './components/App.vue';
 import Example from './components/ExampleComponent.vue';
+import Register from './components/Register.vue';
+export default Vue;
 const routes = [
   {
       name: 'Example',
       path: '/',
       component: Example
+  },
+  {
+      name: 'Register',
+      path: '/register',
+      component: Register
   }
 ];
-const router = new VueRouter({ mode: 'history', routes: routes});
+export var router = new VueRouter({ mode: 'history', routes: routes});
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');
