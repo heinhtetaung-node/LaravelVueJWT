@@ -1,0 +1,17 @@
+JWT Auth
+
+$ composer require tymon/jwt-auth
+
+app.php
+'providers' => [
+    Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+]
+'aliases' => [
+    'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+]
+
+$ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+
+$ php artisan jwt:generate 
+( If the above is not okay let it be write yourself in .env file )
+JWT_SECRET=2454545adff78eerer2dfdfdfKBrtiycPsJYUon9XvFRADZT7AXN5SsX4o

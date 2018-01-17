@@ -9,6 +9,15 @@
                     <li>
                         <router-link :to="{ name: 'Register' }">Register</router-link>
                     </li>
+                    <li class="pull-right" v-if="!auth.user.authenticated">
+                        <router-link :to="{ name: 'signin' }">Sign in</router-link>
+                    </li>
+                    <li class="pull-right" v-if="auth.user.authenticated">
+                        <a href="javascript:void(0)" v-on:click="signout">Sign out</a>
+                    </li>
+                    <li class="pull-right" v-if="auth.user.authenticated">
+                        Hi, {{ auth.user.profile.name }}
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -29,6 +38,22 @@
     }
 </style>
 <script>
-    export default{
+import auth from '../auth.js'
+export default {
+    data() {
+        return {
+            auth: auth
+        }
+    },
+    methods: {
+        signout() {
+            auth.signout()
+        }
+    },
+    mounted: function () {
+        this.$nextTick(function () {
+            auth.check()
+        })
     }
+}
 </script>
