@@ -15,3 +15,22 @@ $ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceP
 $ php artisan jwt:generate 
 ( If the above is not okay let it be write yourself in .env file )
 JWT_SECRET=2454545adff78eerer2dfdfdfKBrtiycPsJYUon9XvFRADZT7AXN5SsX4o
+
+must add .env file like this
+JWT_SECRET=2454545adff78eerer2dfdfdfKBrtiycPsJYUon9XvFRADZT7AXN5SsX4o
+JWT_TTL=60
+JWT_REFRESH_TTL=21600
+JWT_BLACKLIST_GRACE_PERIOD=30
+
+
+
+------ Reference link of vue jwt for authentication ------
+https://vuejsfeed.com/blog/laravel-jwt-auth-with-vue-js
+http://jimfrenette.com/2016/11/laravel-vuejs2-jwt-auth/
+https://github.com/jimfrenette/laravel-vuejs-jwt-auth
+
+https://auth0.com/blog/build-an-app-with-vuejs/
+
+https://github.com/tymondesigns/jwt-auth
+https://github.com/tymondesigns/jwt-auth/issues/1355
+https://www.sitepoint.com/php-authorization-jwt-json-web-tokens/
