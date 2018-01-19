@@ -16438,10 +16438,94 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var htmlstr = "<div class=\"bottomcontent\"><div class=\"moreresults\" @click=\"$emit('test-click')\">More Results</div></div>";
+var bottomcontent = {
+    template: htmlstr + " ",
+    data: function data() {
+        return {
+            homepage: {
+                numberofdivs: 60
+            },
+            message: 123
+        };
+    },
+    methods: {
+        appendcontent: function appendcontent() {
+            console.log('Called method!');
+            this.homepage.numberofdivs += 60;
+        }
+    }
+};
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: ""
+        };
+    },
+
+    components: {
+        'bottomcontent': bottomcontent
+    },
     mounted: function mounted() {
         console.log('Component mounted.');
+        bottomcontent.message = "abc";
+    },
+
+    render: function render(createElement) {
+        return "abcdefghi";
+    },
+    methods: {
+        addthis: function addthis(str) {
+            alert("addthis");
+        },
+        categoryView: function categoryView() {
+            var str = "";
+            str = str + "<input type='button' value='add111' onclick='alert(\"ei\")' >";
+            return str;
+        },
+        dosth: function dosth() {
+            alert("abc");
+            htmlstr = "abc";
+            bottomcontent.template = "abc";
+            //this.$emit.click();
+        },
+        testFunction: function testFunction() {
+            alert("test");
+        },
+        testFunction1: function testFunction1() {},
+        showcatdiv: function showcatdiv() {
+            this.catdivdata = "Now click on me <a href='#' @click.prevent='alert(\"yo\")'> here </a>";
+        },
+        hithere: function hithere(str) {
+            alert(str);
+        },
+        replace: function replace() {
+            this.data = "Now click on me <a href='#' @click.prevent='alertt(\"yo\")'> here </a>";
+        }
+    },
+    computed: {
+        compiledData: function compiledData() {
+            return {
+                template: "<p>" + this.data + " kl;</p>",
+                methods: {
+                    alertt: function alertt(dd) {
+                        alert("ei");
+                    }
+                }
+            };
+        }
     }
 });
 
@@ -16453,17 +16537,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c(
+          "div",
+          { staticClass: "panel panel-default" },
+          [
             _c("div", { staticClass: "panel-heading" }, [
               _vm._v("Example Component")
             ]),
@@ -16472,13 +16552,37 @@ var staticRenderFns = [
               _vm._v(
                 "\n                    I'm an example component!\n                "
               )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "button", value: "addOutside" },
+              on: {
+                click: function($event) {
+                  _vm.dosth()
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.categoryView()) },
+              on: { "test-click1": _vm.testFunction1 }
+            }),
+            _vm._v(" "),
+            _c("bottomcontent", { on: { "test-click": _vm.testFunction } }),
+            _vm._v(" "),
+            _c(_vm.compiledData, { tag: "component" }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.replace } }, [
+              _vm._v("Click Me to replace div contents")
             ])
-          ])
-        ])
+          ],
+          1
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
